@@ -60,4 +60,13 @@ function draw() {
 	clear();
   //rect(0, 0, width, height);
   
-
+  
+  // Move and spawn particles.
+  // Remove any that is below the velocity threshold.
+  for (var i = allParticles.length-1; i > -1; i--) {
+    allParticles[i].move();
+    
+    if (allParticles[i].vel.mag() < 0.01) {
+      allParticles.splice(i, 1);
+    }
+  }
