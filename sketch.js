@@ -18,6 +18,18 @@ var Delaunay;
       if(vertices[i][1] < ymin) ymin = vertices[i][1];
       if(vertices[i][1] > ymax) ymax = vertices[i][1];
     }
+    dx = xmax - xmin;
+    dy = ymax - ymin;
+    dmax = Math.max(dx, dy);
+    xmid = xmin + dx * 0.5;
+    ymid = ymin + dy * 0.5;
+
+    return [
+      [xmid - 20 * dmax, ymid -      dmax],
+      [xmid            , ymid + 20 * dmax],
+      [xmid + 20 * dmax, ymid -      dmax]
+    ];
+  }	  
 
 
 var allParticles = [];
