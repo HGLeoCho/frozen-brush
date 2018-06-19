@@ -70,3 +70,12 @@ function draw() {
       allParticles.splice(i, 1);
     }
   }
+
+if (allParticles.length > 0) {
+    // Run script to get points to create triangles with.
+    data = Delaunay.triangulate(allParticles.map(function(pt) {
+      return [pt.pos.x, pt.pos.y];
+    }));
+  	
+    strokeWeight(0.1);
+    	
