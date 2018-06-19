@@ -1,4 +1,5 @@
-ar allParticles = [];
+
+var allParticles = [];
 var maxLevel = 3;
 var useFill = true;
 var loopForever = true;
