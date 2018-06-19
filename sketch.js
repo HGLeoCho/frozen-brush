@@ -135,3 +135,12 @@ for (var i = 0; i < data.length; i += 3) {
   
   
 }
+
+function mouseMoved() {
+  allParticles.push(new Particle(mouseX, mouseY, maxLevel));
+}
+function mousePressed() {
+  loopForever ? loop(): noLoop();
+  loopForever = loopForever? false:true;
+	//print(loopForever);
+}
