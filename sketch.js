@@ -114,3 +114,24 @@ for (var i = 0; i < data.length; i += 3) {
                p3.pos.x, p3.pos.y);
     }
   }
+ noStroke();
+  fill(255);
+  //text("Press any key to change to fill/stroke", width/2, height-50);
+  fakeMouseDirection.x = fakeMouseDirection.x + random(-fakeMouseRand,fakeMouseRand);
+  fakeMouseDirection.y = fakeMouseDirection.y + random(-fakeMouseRand,fakeMouseRand);
+
+  fakeMouse.x = fakeMouse.x + fakeMouseDirection.x;
+  fakeMouse.y = fakeMouse.y + fakeMouseDirection.y;
+  //check boundaries
+  if(fakeMouse.x < 0 || fakeMouse.x > width){
+   	 fakeMouseDirection.x = -fakeMouseDirection.x;
+  }
+  if(fakeMouse.y < 0 || fakeMouse.y > height){
+   	 fakeMouseDirection.y = -fakeMouseDirection.y;
+  }
+  fakeMouseDirection.x = constrain(fakeMouseDirection.x, -fakeMouseVelocityMax,fakeMouseVelocityMax);
+  fakeMouseDirection.y = constrain(fakeMouseDirection.y, -fakeMouseVelocityMax,fakeMouseVelocityMax);
+  allParticles.push(new Particle(fakeMouse.x, fakeMouse.y, maxLevel));
+  
+  
+}
