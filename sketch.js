@@ -52,3 +52,12 @@ function setup() {
     fakeMouseDirection = createVector(random(-fakeMouseVelocityMax,fakeMouseVelocityMax),random(-fakeMouseVelocityMax,fakeMouseVelocityMax));
 
 } 
+
+function draw() {
+  // Create fade effect.
+  noStroke();
+  fill(360, 20);
+	clear();
+  //rect(0, 0, width, height);
+  
+
