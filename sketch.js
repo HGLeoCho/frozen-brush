@@ -49,6 +49,13 @@ if(fabsy1y2 < EPSILON && fabsy2y3 < EPSILON)
       xc  = (x2 + x1) / 2.0;
       yc  = m2 * (xc - mx2) + my2;
     }
+	    else if(fabsy2y3 < EPSILON) {
+      m1  = -((x2 - x1) / (y2 - y1));
+      mx1 = (x1 + x2) / 2.0;
+      my1 = (y1 + y2) / 2.0;
+      xc  = (x3 + x2) / 2.0;
+      yc  = m1 * (xc - mx1) + my1;
+    }
 
 var allParticles = [];
 var maxLevel = 3;
