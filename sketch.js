@@ -42,7 +42,13 @@ function circumcircle(vertices, i, j, k) {
         xc, yc, m1, m2, mx1, mx2, my1, my2, dx, dy;
 if(fabsy1y2 < EPSILON && fabsy2y3 < EPSILON)
       throw new Error("oh no coincidents poitns!");
-
+    if(fabsy1y2 < EPSILON) {
+      m2  = -((x3 - x2) / (y3 - y2));
+      mx2 = (x2 + x3) / 2.0;
+      my2 = (y2 + y3) / 2.0;
+      xc  = (x2 + x1) / 2.0;
+      yc  = m2 * (xc - mx2) + my2;
+    }
 
 var allParticles = [];
 var maxLevel = 3;
