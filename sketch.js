@@ -74,6 +74,26 @@ if(fabsy1y2 < EPSILON && fabsy2y3 < EPSILON)
     return {i: i, j: j, k: k, x: xc, y: yc, r: dx * dx + dy * dy};
   }
 
+	  function dedup(edges) {
+    var i, j, a, b, m, n;
+
+    for(j = edges.length; j; ) {
+      b = edges[--j];
+      a = edges[--j];
+
+      for(i = j; i; ) {
+        n = edges[--i];
+        m = edges[--i];
+
+        if((a === m && b === n) || (a === n && b === m)) {
+          edges.splice(j, 2);
+          edges.splice(i, 2);
+          break;
+        }
+      }
+    }
+  }
+	
 var allParticles = [];
 var maxLevel = 3;
 var useFill = true;
