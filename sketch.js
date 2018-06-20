@@ -40,6 +40,8 @@ function circumcircle(vertices, i, j, k) {
         fabsy1y2 = Math.abs(y1 - y2),
         fabsy2y3 = Math.abs(y2 - y3),
         xc, yc, m1, m2, mx1, mx2, my1, my2, dx, dy;
+if(fabsy1y2 < EPSILON && fabsy2y3 < EPSILON)
+      throw new Error("oh no coincidents poitns!");
 
 
 var allParticles = [];
