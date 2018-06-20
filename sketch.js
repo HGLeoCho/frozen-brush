@@ -30,6 +30,16 @@ var Delaunay;
       [xmid + 20 * dmax, ymid -      dmax]
     ];
   }	  
+function circumcircle(vertices, i, j, k) {
+    var x1 = vertices[i][0],
+        y1 = vertices[i][1],
+        x2 = vertices[j][0],
+        y2 = vertices[j][1],
+        x3 = vertices[k][0],
+        y3 = vertices[k][1],
+        fabsy1y2 = Math.abs(y1 - y2),
+        fabsy2y3 = Math.abs(y2 - y3),
+        xc, yc, m1, m2, mx1, mx2, my1, my2, dx, dy;
 
 
 var allParticles = [];
