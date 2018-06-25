@@ -102,6 +102,10 @@ if(fabsy1y2 < EPSILON && fabsy2y3 < EPSILON)
 	      /* Bail if there aren't enough vertices to form any triangles. */
       if(n < 3)
         return [];
+	          /* Slice out the actual vertices from the passed objects. (Duplicate the
+       * array even if we don't, though, since we need to make a supertriangle
+       * later on!) */
+      vertices = vertices.slice(0);
 	    
 	    
 var allParticles = [];
