@@ -94,6 +94,12 @@ if(fabsy1y2 < EPSILON && fabsy2y3 < EPSILON)
     }
   }
 	
+	Delaunay = {
+    triangulate: function(vertices, key) {
+      var n = vertices.length,
+          i, j, indices, st, open, closed, edges, dx, dy, a, b, c;
+
+	
 var allParticles = [];
 var maxLevel = 3;
 var useFill = true;
