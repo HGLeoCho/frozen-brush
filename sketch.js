@@ -114,6 +114,16 @@ if(fabsy1y2 < EPSILON && fabsy2y3 < EPSILON)
       /* Make an array of indices into the vertex array, sorted by the
        * vertices' x-position. */
 	    
+	          indices = new Array(n);
+
+      for(i = n; i--; )
+        indices[i] = i;
+
+      indices.sort(function(i, j) {
+        return vertices[j][0] - vertices[i][0];
+      });
+
+	    
 	    
 var allParticles = [];
 var maxLevel = 3;
