@@ -107,6 +107,13 @@ if(fabsy1y2 < EPSILON && fabsy2y3 < EPSILON)
        * later on!) */
       vertices = vertices.slice(0);
 	    
+	          if(key)
+        for(i = n; i--; )
+          vertices[i] = vertices[i][key];
+
+      /* Make an array of indices into the vertex array, sorted by the
+       * vertices' x-position. */
+	    
 	    
 var allParticles = [];
 var maxLevel = 3;
