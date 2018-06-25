@@ -99,12 +99,7 @@ var maxLevel = 3;
 var useFill = true;
 var loopForever = true;
 
-var isScriptLoaded = false;
-var data = [];
-var fakeMouse;
-var fakeMouseDirection;
-var fakeMouseVelocityMax = 10;
-var fakeMouseRand = 2;
+
 
 // Moves to a random direction and comes to a stop.
 // Spawns other particles within its lifetime.
