@@ -99,7 +99,11 @@ if(fabsy1y2 < EPSILON && fabsy2y3 < EPSILON)
       var n = vertices.length,
           i, j, indices, st, open, closed, edges, dx, dy, a, b, c;
 
-	
+	      /* Bail if there aren't enough vertices to form any triangles. */
+      if(n < 3)
+        return [];
+	    
+	    
 var allParticles = [];
 var maxLevel = 3;
 var useFill = true;
