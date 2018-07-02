@@ -12,3 +12,9 @@ Inspired by:
 	Makio135's sketch www.openprocessing.org/sketch/385808
 
 */
+
+var allParticles = [];
+var maxLevel = 5;
+var useFill = false;
+
+var data = [];
