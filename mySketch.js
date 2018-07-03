@@ -29,3 +29,8 @@ function Particle(x, y, level) {
 
 	  this.move = function() {
     this.life++;
+
+		      // Add friction.
+    this.vel.mult(0.9);
+    
+    this.pos.add(this.vel);
