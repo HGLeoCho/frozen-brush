@@ -43,11 +43,12 @@ function Particle(x, y, level) {
     }
   }
 }
-
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
   colorMode(HSB, 360);
+
+  textAlign(CENTER);
 
   background(0);
 }
