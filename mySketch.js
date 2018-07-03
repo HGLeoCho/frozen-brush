@@ -18,3 +18,7 @@ var maxLevel = 5;
 var useFill = false;
 
 var data = [];
+
+function Particle(x, y, level) {
+	  this.level = level;
+  this.life = 0;
