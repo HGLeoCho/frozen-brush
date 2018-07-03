@@ -34,3 +34,13 @@ function Particle(x, y, level) {
     this.vel.mult(0.9);
     
     this.pos.add(this.vel);
+		  
+		      if (this.life % 10 == 0) {
+      if (this.level > 0) {
+        this.level -= 1;
+        var newParticle = new Particle(this.pos.x, this.pos.y, this.level-1);
+        allParticles.push(newParticle);
+      }
+    }
+  }
+}
