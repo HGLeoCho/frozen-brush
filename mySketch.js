@@ -24,6 +24,8 @@ function Particle(x, y, level) {
   this.life = 0;
 
   this.pos = new p5.Vector(x, y);
+  this.vel = p5.Vector.random2D();
+  this.vel.mult(map(this.level, 0, maxLevel, 5, 2));
 
   this.move = function () {
     this.life++;
