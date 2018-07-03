@@ -21,19 +21,19 @@ var data = [];
 
 function Particle(x, y, level) {
 	  this.level = level;
-  this.life = 0;
+  	this.life = 0;
 
 	  this.pos = new p5.Vector(x, y);
-  this.vel = p5.Vector.random2D();
-  this.vel.mult(map(this.level, 0, maxLevel, 5, 2));
+ 	 this.vel = p5.Vector.random2D();
+  	this.vel.mult(map(this.level, 0, maxLevel, 5, 2));
 
 	  this.move = function() {
-    this.life++;
+    	this.life++;
 
 		      // Add friction.
-    this.vel.mult(0.9);
+  	  this.vel.mult(0.9);
     
-    this.pos.add(this.vel);
+  	  this.pos.add(this.vel);
 		  
 		      if (this.life % 10 == 0) {
       if (this.level > 0) {
