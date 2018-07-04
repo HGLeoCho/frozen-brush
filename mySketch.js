@@ -46,11 +46,13 @@ function Particle(x, y, level) {
   }
 }
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-
+  createCanvas(windowWidth, windowHeight); 
+  
   colorMode(HSB, 360);
 
   textAlign(CENTER);
+  clear();
+    fakeMouse = {x:width/2, y:height/2};
+    fakeMouseDirection = createVector(random(-fakeMouseVelocityMax,fakeMouseVelocityMax),random(-fakeMouseVelocityMax,fakeMouseVelocityMax));
 
-  background(0);
-}
+} 
