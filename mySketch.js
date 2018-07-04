@@ -14,10 +14,16 @@ Inspired by:
 */
 
 var allParticles = [];
-var maxLevel = 5;
+var maxLevel = 3;
 var useFill = false;
+var loopForever = true;
 
+var isScriptLoaded = false;
 var data = [];
+var fakeMouse;
+var fakeMouseDirection;
+var fakeMouseVelocityMax = 10;
+var fakeMouseRand = 2;
 
 function Particle(x, y, level) {
   this.level = level;
