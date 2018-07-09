@@ -75,3 +75,11 @@ function draw() {
   clear();
   fill(51);
   rect(0, 0, width, height);
+	
+  for (var i = allParticles.length-1; i > -1; i--) {
+    allParticles[i].move();
+    
+    if (allParticles[i].vel.mag() < 0.01) {
+      allParticles.splice(i, 1);
+    }
+  }
