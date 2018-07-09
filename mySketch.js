@@ -25,6 +25,9 @@ var fakeMouseDirection;
 var fakeMouseVelocityMax = 10;
 var fakeMouseRand = 2;
 
+var initialtime = 2; //4seconds to swap between brushes
+var timer = initialtime;
+
 function Particle(x, y, level) {
   this.level = level;
   this.life = 0;
