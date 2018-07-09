@@ -89,3 +89,40 @@ function draw() {
     data = Delaunay.triangulate(allParticles.map(function(pt) {
       return [pt.pos.x, pt.pos.y];
     }));
+	 
+    for (var i = 0; i < data.length; i += 3) {
+      // Collect particles that make this triangle.
+      var p1 = allParticles[data[i]];
+      var p2 = allParticles[data[i+1]];
+      var p3 = allParticles[data[i+2]];
+      
+      // Don't draw triangle if its area is too big.
+      var distThresh = 100;
+      
+      if (dist(p1.pos.x, p1.pos.y, p2.pos.x, p2.pos.y) > distThresh) {
+        continue;
+      }
+      
+      if (dist(p2.pos.x, p2.pos.y, p3.pos.x, p3.pos.y) > distThresh) {
+        continue;
+      }
+      
+      if (dist(p1.pos.x, p1.pos.y, p3.pos.x, p3.pos.y) > distThresh) {
+        continue;
+      }
+      
+      // Base its hue by the particle's life.
+      if (useFill) {
+        noStroke();
+        fill(165+p1.life*1.5, 360, 360);
+      } else {
+        noFill();
+        strokeWeight(2);
+        stroke(165+p1.life*1.5, 360, 360);
+      }
+      
+      triangle(p1.pos.x, p1.pos.y, 
+               p2.pos.x, p2.pos.y, 
+               p3.pos.x, p3.pos.y);
+    }
+  }
