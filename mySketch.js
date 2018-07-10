@@ -128,3 +128,6 @@ function draw() {
   }
   noStroke();
   fill(255);
+
+  fakeMouseDirection.x = fakeMouseDirection.x + random(-fakeMouseRand,fakeMouseRand);
+  fakeMouseDirection.y = fakeMouseDirection.y + random(-fakeMouseRand,fakeMouseRand);	
