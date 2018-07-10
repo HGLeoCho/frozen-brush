@@ -149,3 +149,7 @@ function draw() {
     switchfill();
     timer = initialtime;
   }
+  //noStroke();
+  textSize(20);
+  fill(255);
+  text("Click Left Mouse to Pause", width / 2, height - 100);
