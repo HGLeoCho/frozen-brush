@@ -161,3 +161,8 @@ function draw() {
 function mouseMoved() {
   allParticles.push(new Particle(mouseX, mouseY, maxLevel));
 }
+function mousePressed() {
+  loopForever ? loop(): noLoop();
+  loopForever = loopForever? false:true;
+	//print(loopForever);
+}
