@@ -131,3 +131,5 @@ function draw() {
 
   fakeMouseDirection.x = fakeMouseDirection.x + random(-fakeMouseRand,fakeMouseRand);
   fakeMouseDirection.y = fakeMouseDirection.y + random(-fakeMouseRand,fakeMouseRand);	
+  fakeMouse.x = fakeMouse.x + fakeMouseDirection.x;
+  fakeMouse.y = fakeMouse.y + fakeMouseDirection.y;
