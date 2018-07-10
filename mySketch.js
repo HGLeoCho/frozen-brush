@@ -139,3 +139,6 @@ function draw() {
   if(fakeMouse.y < 0 || fakeMouse.y > height){
    	 fakeMouseDirection.y = -fakeMouseDirection.y;
   }
+  fakeMouseDirection.x = constrain(fakeMouseDirection.x, -fakeMouseVelocityMax,fakeMouseVelocityMax);
+  fakeMouseDirection.y = constrain(fakeMouseDirection.y, -fakeMouseVelocityMax,fakeMouseVelocityMax);
+  allParticles.push(new Particle(fakeMouse.x, fakeMouse.y, maxLevel));
