@@ -126,3 +126,5 @@ function draw() {
                p3.pos.x, p3.pos.y);
     }
   }
+  noStroke();
+  fill(255);
