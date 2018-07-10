@@ -55,7 +55,7 @@ function Particle(x, y, level) {
   }
 }
 function setup() {
-  createCanvas(windowWidth, windowHeight); 
+  createCanvas(windowWidth-100, windowHeight-100); 
   
   colorMode(HSB, 360);
 
