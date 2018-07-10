@@ -131,24 +131,32 @@ function draw() {
 
   fakeMouseDirection.x = fakeMouseDirection.x + random(-fakeMouseRand,fakeMouseRand);
   fakeMouseDirection.y = fakeMouseDirection.y + random(-fakeMouseRand,fakeMouseRand);	
+	
   fakeMouse.x = fakeMouse.x + fakeMouseDirection.x;
   fakeMouse.y = fakeMouse.y + fakeMouseDirection.y;
+	
   if(fakeMouse.x < 0 || fakeMouse.x > width){
    	 fakeMouseDirection.x = -fakeMouseDirection.x;
   }
+	
   if(fakeMouse.y < 0 || fakeMouse.y > height){
    	 fakeMouseDirection.y = -fakeMouseDirection.y;
   }
+	
   fakeMouseDirection.x = constrain(fakeMouseDirection.x, -fakeMouseVelocityMax,fakeMouseVelocityMax);
   fakeMouseDirection.y = constrain(fakeMouseDirection.y, -fakeMouseVelocityMax,fakeMouseVelocityMax);
+	
   allParticles.push(new Particle(fakeMouse.x, fakeMouse.y, maxLevel));
+	
   if (frameCount % 60 == 0 && timer > 0){
     timer --;
   }
+	
   if (timer == 0){
     switchfill();
     timer = initialtime;
   }
+	
   //noStroke();
   textSize(20);
   fill(255);
@@ -158,14 +166,20 @@ function draw() {
   text("Frame Count: " + frameCount, width / 2, height - 30);
 
 }
+
+
 function mouseMoved() {
   allParticles.push(new Particle(mouseX, mouseY, maxLevel));
 }
+
+
 function mousePressed() {
   loopForever ? loop(): noLoop();
   loopForever = loopForever? false:true;
 	//print(loopForever);
 }
+
+
 function switchfill() {
   useFill = ! useFill;
 }
