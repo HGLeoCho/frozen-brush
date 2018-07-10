@@ -166,3 +166,6 @@ function mousePressed() {
   loopForever = loopForever? false:true;
 	//print(loopForever);
 }
+function switchfill() {
+  useFill = ! useFill;
+}
