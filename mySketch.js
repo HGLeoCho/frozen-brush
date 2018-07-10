@@ -136,3 +136,6 @@ function draw() {
   if(fakeMouse.x < 0 || fakeMouse.x > width){
    	 fakeMouseDirection.x = -fakeMouseDirection.x;
   }
+  if(fakeMouse.y < 0 || fakeMouse.y > height){
+   	 fakeMouseDirection.y = -fakeMouseDirection.y;
+  }
