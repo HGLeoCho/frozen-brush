@@ -153,3 +153,8 @@ function draw() {
   textSize(20);
   fill(255);
   text("Click Left Mouse to Pause", width / 2, height - 100);
+  fill(100);
+  text("HoGyeong Leo Cho", width / 2, height - 60);
+  text("Frame Count: " + frameCount, width / 2, height - 30);
+
+}
