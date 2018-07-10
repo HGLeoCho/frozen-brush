@@ -145,3 +145,7 @@ function draw() {
   if (frameCount % 60 == 0 && timer > 0){
     timer --;
   }
+  if (timer == 0){
+    switchfill();
+    timer = initialtime;
+  }
