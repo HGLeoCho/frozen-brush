@@ -158,3 +158,6 @@ function draw() {
   text("Frame Count: " + frameCount, width / 2, height - 30);
 
 }
+function mouseMoved() {
+  allParticles.push(new Particle(mouseX, mouseY, maxLevel));
+}
