@@ -28,6 +28,8 @@ var fakeMouseRand = 2;
 var initialtime = 2; //4seconds to swap between brushes
 var timer = initialtime;
 
+// Moves to a random direction and comes to a stop.
+// Spawns other particles within its lifetime.
 function Particle(x, y, level) {
   this.level = level;
   this.life = 0;
@@ -54,6 +56,8 @@ function Particle(x, y, level) {
     }
   }
 }
+
+
 function setup() {
   createCanvas(windowWidth-100, windowHeight-100); 
   
@@ -66,16 +70,29 @@ function setup() {
 
 } 
 
+
 function draw() {
   // Create fade effect.
   //var second = second();
 
-  noStroke();
-  fill(360, 20);
+  // noStroke();
+  // fill(360, 20);
   clear();
-  fill(51);
+  //fill(360);
+  //rect(0, 0, width, height);
+
+  /*
+    noStroke();
+  fill(0, 30);
   rect(0, 0, width, height);
-	
+  */
+
+  //rect(0, 0, width, height);
+  
+
+  
+  // Move and spawn particles.
+  // Remove any that is below the velocity threshold.
   for (var i = allParticles.length-1; i > -1; i--) {
     allParticles[i].move();
     
@@ -83,13 +100,16 @@ function draw() {
       allParticles.splice(i, 1);
     }
   }
-
+  
   if (allParticles.length > 0) {
     // Run script to get points to create triangles with.
     data = Delaunay.triangulate(allParticles.map(function(pt) {
       return [pt.pos.x, pt.pos.y];
     }));
-	 
+  	
+
+    
+    // Display triangles individually.
     for (var i = 0; i < data.length; i += 3) {
       // Collect particles that make this triangle.
       var p1 = allParticles[data[i]];
@@ -97,7 +117,7 @@ function draw() {
       var p3 = allParticles[data[i+2]];
       
       // Don't draw triangle if its area is too big.
-      var distThresh = 100;
+      var distThresh = 50;
       
       if (dist(p1.pos.x, p1.pos.y, p2.pos.x, p2.pos.y) > distThresh) {
         continue;
@@ -126,37 +146,34 @@ function draw() {
                p3.pos.x, p3.pos.y);
     }
   }
+  
   noStroke();
-  fill(255);
-
+  //fill(255);
+  //text("Press any key to change to fill/stroke", width/2, height-50);
   fakeMouseDirection.x = fakeMouseDirection.x + random(-fakeMouseRand,fakeMouseRand);
-  fakeMouseDirection.y = fakeMouseDirection.y + random(-fakeMouseRand,fakeMouseRand);	
-	
+  fakeMouseDirection.y = fakeMouseDirection.y + random(-fakeMouseRand,fakeMouseRand);
+
   fakeMouse.x = fakeMouse.x + fakeMouseDirection.x;
   fakeMouse.y = fakeMouse.y + fakeMouseDirection.y;
-	
+  //check boundaries
   if(fakeMouse.x < 0 || fakeMouse.x > width){
    	 fakeMouseDirection.x = -fakeMouseDirection.x;
   }
-	
   if(fakeMouse.y < 0 || fakeMouse.y > height){
    	 fakeMouseDirection.y = -fakeMouseDirection.y;
   }
-	
   fakeMouseDirection.x = constrain(fakeMouseDirection.x, -fakeMouseVelocityMax,fakeMouseVelocityMax);
   fakeMouseDirection.y = constrain(fakeMouseDirection.y, -fakeMouseVelocityMax,fakeMouseVelocityMax);
-	
   allParticles.push(new Particle(fakeMouse.x, fakeMouse.y, maxLevel));
-	
+  
   if (frameCount % 60 == 0 && timer > 0){
     timer --;
   }
-	
   if (timer == 0){
     switchfill();
     timer = initialtime;
   }
-	
+
   //noStroke();
   textSize(20);
   fill(255);
@@ -171,15 +188,13 @@ function draw() {
 function mouseMoved() {
   allParticles.push(new Particle(mouseX, mouseY, maxLevel));
 }
-
-
 function mousePressed() {
   loopForever ? loop(): noLoop();
   loopForever = loopForever? false:true;
 	//print(loopForever);
 }
 
-
 function switchfill() {
   useFill = ! useFill;
 }
+
